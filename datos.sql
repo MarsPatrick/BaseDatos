@@ -97,25 +97,23 @@ CREATE TABLE ESTIMA(
 	FOREIGN KEY (id_trabajo) REFERENCES TRABAJO,
 	FOREIGN KEY (id_proyecto) REFERENCES PROYECTO,
 	FOREIGN KEY (Rut_Contratista) REFERENCES CONTRATISTA);
-	
-	//ARREGLAR INSERT (RUT y rellenar)
 ( Region 		id_region,nombre
 INSERT INTO Region
 Values 	(1,'Arica y Parinacota'),
-		(2,'Tarapacá'),
+		(2,'Tarapaca'),
         (3,'Antofagasta'),
         (4,'Atacama'),
         (5,'Coquimbo'),
-        (6,'Valparaíso'),
-		(7,'Región Metropolitana de Santiago'),
+        (6,'Valparaiso'),
+		(7,'Metropolitana de Santiago'),
         (8,'Libertador General Bernardo O’Higgins'),
         (9,'Maule'),
 		(10,'Ñuble'),
-        (11,'Biobío'),
-        (12,'La Araucanía'),
-		(13,'Los Ríos'),
+        (11,'Biobio'),
+        (12,'La Araucania'),
+		(13,'Los Rios'),
         (14,'Los Lagos'),
-        (15,'Aysén del General Carlos Ibáñez del Campo'),
+        (15,'Aysén del General Carlos Ibañez del Campo'),
         (16,'Magallanes y Antártica Chilena');
 )		
 ( Especialidad 	id_especialidad,descripcion
@@ -192,32 +190,62 @@ Values 	(1,'Pintura',1650,'Litros'),
 		(15,'Ampolletas',1000,'Unidad'),
 		(16,'Cable',180,'Metros'),
 		(17,'Madera Balsa',1700,'Unidad'),
-		()
+		(18,'Florero',1000,'Unidad'),
+		(19,'Cuadro',10000,'Unidad'),
+		(20,'Candelabro',10000,'Unidad');
 )
 ( CIUDAD		id_ciudad,nombre,id_region
 INSERT INTO Ciudad
-Values	(1,'Valdivia',1),
-		(2,'Talca',2),
-		(3,'Santiago',3),
-		(4,'Concepcion',4),
-		(5,'Coyhaique',5);
+Values	(1,'Arica',1),
+		(2,'Iquique',2),
+		(3,'Antofagasta',3),
+		(4,'Copiapo',4),
+		(5,'La Serena',5),
+		(6,'Valparaiso',6),
+		(7,'Santiago',7),
+		(8,'Rancagua',8),
+		(9,'Talca',9),
+		(10,'Chillan',10),
+		(11,'Concepcion',11),
+		(12,'Temuco',12),
+		(13,'Valdivia',13),
+		(14,'Puerto Montt',14),
+		(15,'Coyhaique',15),
+		(16,'Punta Arenas',16);
 )
 ( Cliente		Rut_Cliente,Primer_Nombre,Segundo_Nombre,Primer_Apellido,Segundo_Apellido,Numero_Tel,Direccion,Fecha_Nac,id_ciudad
 INSERT INTO Cliente
-Values 	(1,'Patricio','Andres','Labra','Medina',123456789,'Dr Sanhueza 494','19/07/1980',1),
-		(2,'Francisco','Enrique','Medina','Labra',123456788,'Delfin Carvallo 498','20/02/1981',2),
-		(3,'Jorge','Andres','Fica','Ramirez',123456787,'Collao 769','29/02/1984',3),
-		(4,'Edelberto','Esteban','Fernandez','Mendez',123456786,'Los Bosques 3021','30/05/1982',4),
-		(5,'Romualdo','Javier','Perez','Inostrosa',123456785,'Carrera 2067','15/11/1983',5);
+Values 	('12.209.321-2','Gaspar','Said','Godoy','Muriel',997844223,'Abedul 1345','28/12/1972',1),
+		('12.581.127-2','Abdelkader','Fabian','Acevedo','Marques',937161138,'Aconcagua 7823','20/03/1974',2),
+		('20.050.945-5','Juan','Evaristo','Mañas','Zheng',901531376,'Augusto DHalmar 7639','28/02/1999',3),
+		('12.200.994-7','Dario','Hicham','Patiño','Arribas',973433128,'Baldomero Lillo 3021','24/12/1972',4),
+		('13.884.733-0','Eloi','Carles','Trillo','Leiva',940964770,'Calafate 2067','15/07/1978',5),
+		('9.873.114-8','Teresa','Balbina','SanMartin','Ros',994774927,'Nueva de Julio 2340','16/03/1965',6),
+		('19.544.656-3','Mercedes','Mireya','Galvan','Neira',965743187,'Manuel Montt 5238','02/06/1997',7),
+		('20.160.580-6','Tania','Josefa','Bosch','Peña',909364461,'Avenida Einstein 6282','05/06/1999',8),
+		('8.637.198-7','Angustias','Rosario','Escudero','Mohamed',939828306,'Panguipulli 8225','18/01/1961',9),
+		('8.503.744-7','Lina','Elena','Navarro','Montoro',999505089,'Cerro Centinela 916','08/08/1960',10),
+		('18.996.078-6','Alexandre','Miguel','Corrales','Roldan',928700368,'Collao 7239','01/08/1995',11),
+		('17.610.809-6','Jose','Ramon','Bernal','Arnaiz',904722648,'Choapa 5419','24/01/1991',12),
+		('19.974.759-2','Andres','Amador','Martin','Martinez',901691071,'Gil de Castro 2904','15/11/1998',13),
+		('11.435.716-2','Felisa','Almudena','Berenger','Moro',961124004,'Palermo 9283','17/05/1970',14),
+		('5.668.027-6','Valentina','Sonia','Fraile','Boix',931931414,'Linares 8782','14/03/1951',15);
 )		
-( Decorador 	Rut_Decorador,id_especialidad,Primer_Nombre,Segundo_Nombre,Primer_Apellido,Segundo_Apellido
+Calles
+( Decorador 	Rut_Decorador,id_especialidad,Primer_Nombre,Segundo_Nombre,Primer_Apellido,Segundo_Apellido,Numero_Tel,Direccion,Fecha_Nac,id_ciudad
 INSERT INTO Decorador
-Values 	(1,1,'Ronaldo','Anibal','Fernandez','Vasquez',123456784,'Collao 731','20/11/1981',1),
-		(2,2,'German','Cristobal','Kennedy','Putin',123456783,'Blanco Encalada 53901','25/10/1982',2),
-		(3,3,'Matias','Andres','Trump','Castro',123456782,'Colo-Colo 362','10/09/1983',3),
-		(4,4,'Benjamin','Ignacio','Obama','Bush',123456781,'Manuel Rodriguez 8923','30/08/1980',4),
-		(5,5,'Federico','Desmond','Ruiz','Bachelet',123456780,'Las Flores 2872','05/07/1979',5);
-)		
+Values 	('13.013.050-k',1,'Demetrio','Salvador','Dominguez','Bellido',956153889,'','20/09/1975',1),
+		('17.369.045-2',2,'Orlando','Alejandro','Segarra','Cañadas',965362345,'','25/03/1990',2),
+		('15.954.847-3',3,'Samir','Gonzalo','España','Cantos',928738809,'','10/06/1985',3),
+		('10.996.764-5',4,'Carlos','Julio','Mendoza','Ahmed',932638243,'','31/12/1968',4),
+		('18.195.306-3',5,'Jose','Denis','Marti','Palacios',932539075,'','14/12/1992',5),
+		('10.825.291-k',6,'Esmeralda','Sandra','Alegre','Barrientos',919822695,'','17/05/1968',6),
+		('19.220.388-0',7,'Maria','Patricia','Pascual','Pizarro',976599763,'','03/05/1996',7),
+		('16.567.946-6',8,'Izaskun','Filomena','Galvan','Vela',997841004,'','08/07/1987',8),
+		('18.062.883-5',9,'Gregoria','Paula','Caparros','Conesa',901533515,'','19/07/1992',9),
+		('8.589.485-4',10,'Estela','Erica','Santos','Iniesta',984342992,'','13/11/1960',10);
+)	
+Falta Arreglar	
 ( Proyecto 		id_proyecto,id_tipo_proyecto,fecha_inicio,tiempo_estimado,costo_estimado,tiempo_real_proyecto,costo_Real,fecha_fin,rut_cliente,rut_decorador,calificacion,observacion
 INSERT INTO Proyecto
 Values	(1,1,'24/10/2020',7,130000,10,150000,'03/11/2020',1,1,7,'Pintado de calidad'),
