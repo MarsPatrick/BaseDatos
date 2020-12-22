@@ -168,8 +168,7 @@ Values	(1,'Repintado Hogar'),
 		(8,'Instalacion de Alumbrado y Red Electrica'),
 		(9,'Instalacion a Peticion del Cliente'),
 		(10,'Creado de Maqueta a Peticion del Cliente'),
-		(11,'Decoracion del Hogar y Exteriores');
-		
+		(11,'Decoracion del Hogar y Exteriores');		
 )
 ( Material		id_material,descripcion,Valor_Unidad,Unidad_Medicion
 INSERT INTO Material
@@ -231,58 +230,72 @@ Values 	('12.209.321-2','Gaspar','Said','Godoy','Muriel',997844223,'Abedul 1345'
 		('11.435.716-2','Felisa','Almudena','Berenger','Moro',961124004,'Palermo 9283','17/05/1970',14),
 		('5.668.027-6','Valentina','Sonia','Fraile','Boix',931931414,'Linares 8782','14/03/1951',15);
 )		
-Calles
 ( Decorador 	Rut_Decorador,id_especialidad,Primer_Nombre,Segundo_Nombre,Primer_Apellido,Segundo_Apellido,Numero_Tel,Direccion,Fecha_Nac,id_ciudad
 INSERT INTO Decorador
-Values 	('13.013.050-k',1,'Demetrio','Salvador','Dominguez','Bellido',956153889,'','20/09/1975',1),
-		('17.369.045-2',2,'Orlando','Alejandro','Segarra','Cañadas',965362345,'','25/03/1990',2),
-		('15.954.847-3',3,'Samir','Gonzalo','España','Cantos',928738809,'','10/06/1985',3),
-		('10.996.764-5',4,'Carlos','Julio','Mendoza','Ahmed',932638243,'','31/12/1968',4),
-		('18.195.306-3',5,'Jose','Denis','Marti','Palacios',932539075,'','14/12/1992',5),
-		('10.825.291-k',6,'Esmeralda','Sandra','Alegre','Barrientos',919822695,'','17/05/1968',6),
-		('19.220.388-0',7,'Maria','Patricia','Pascual','Pizarro',976599763,'','03/05/1996',7),
-		('16.567.946-6',8,'Izaskun','Filomena','Galvan','Vela',997841004,'','08/07/1987',8),
-		('18.062.883-5',9,'Gregoria','Paula','Caparros','Conesa',901533515,'','19/07/1992',9),
-		('8.589.485-4',10,'Estela','Erica','Santos','Iniesta',984342992,'','13/11/1960',10);
+Values 	('13.013.050-k',1,'Demetrio','Salvador','Dominguez','Bellido',956153889,'Cardenal Caro 8923','20/09/1975',1),
+		('17.369.045-2',2,'Orlando','Alejandro','Segarra','Cañadas',965362345,'Madagascar 981','25/03/1990',2),
+		('15.954.847-3',3,'Samir','Gonzalo','España','Cantos',928738809,'Purey 138','10/06/1985',3),
+		('10.996.764-5',4,'Carlos','Julio','Mendoza','Ahmed',932638243,'Mozart 1892','31/12/1968',4),
+		('18.195.306-3',5,'Jose','Denis','Marti','Palacios',932539075,'Osorno 1278','14/12/1992',5),
+		('10.825.291-k',6,'Esmeralda','Sandra','Alegre','Barrientos',919822695,'Sandro Botticeli 672','17/05/1968',6),
+		('19.220.388-0',7,'Maria','Patricia','Pascual','Pizarro',976599763,'Rauli 4561','03/05/1996',7),
+		('16.567.946-6',8,'Izaskun','Filomena','Galvan','Vela',997841004,'Avenida Cachapoal 1042','08/07/1987',8),
+		('18.062.883-5',9,'Gregoria','Paula','Caparros','Conesa',901533515,'Zamora 1290','19/07/1992',9),
+		('8.589.485-4',10,'Estela','Erica','Santos','Iniesta',984342992,'La Campiña 320','13/11/1960',10),
+		('13.882.131-5',11,'Toni','Cesar','Diez','SanJuan',945881831,'20/07/1978',11);
 )	
-Falta Arreglar	
+Arreglar Fechas, Tiempos, Costos, Calificacion, observacion
 ( Proyecto 		id_proyecto,id_tipo_proyecto,fecha_inicio,tiempo_estimado,costo_estimado,tiempo_real_proyecto,costo_Real,fecha_fin,rut_cliente,rut_decorador,calificacion,observacion
 INSERT INTO Proyecto
-Values	(1,1,'24/10/2020',7,130000,10,150000,'03/11/2020',1,1,7,'Pintado de calidad'),
-		(2,2,'25/10/2020',5,300000,7,280000,'01/11/2020',2,2,3,'El mueble quedo disparejo'),
-		(3,3,'26/10/2020',9,120000,7,130000,'02/11/2020',3,3,5,'Alfombra de mala calidad, pero trabajo excelente'),
-		(4,4,'27/10/2020',11,350000,14,340000,'10/11/2020',4,4,6,'Muro estable pero con imperfecciones'),
-		(5,5,'28/10/2020',3,100000,5,90000,'02/11/2020',5,5,4,'Algunas flores parecen muertas'),
-		
-		(6,1,'24/10/2019',7,130000,10,150000,'03/11/2019',1,1,7,'Pintado de calidad'),
-		(7,2,'25/10/2019',5,300000,7,280000,'01/11/2019',2,2,3,'El mueble quedo disparejo'),
-		(8,3,'26/10/2019',9,120000,7,130000,'02/11/2019',3,3,5,'Alfombra de mala calidad, pero trabajo excelente'),
-		(9,4,'27/10/2019',11,350000,14,340000,'10/11/2019',4,4,6,'Muro estable pero con imperfecciones'),
-		(10,5,'28/10/2019',3,100000,5,90000,'02/11/2019',5,5,4,'Algunas flores parecen muertas'),
-		
-		(11,5,'24/10/2020',7,130000,10,150000,'03/11/2020',1,1,7,'Pintado de calidad'),
-		(12,4,'25/10/2020',5,300000,7,280000,'01/11/2020',2,2,3,'El mueble quedo disparejo'),
-		(13,2,'26/10/2020',9,120000,7,130000,'02/11/2020',3,3,5,'Alfombra de mala calidad, pero trabajo excelente'),
-		(14,3,'27/10/2020',11,350000,14,340000,'10/11/2020',4,4,6,'Muro estable pero con imperfecciones'),
-		(15,1,'28/10/2020',3,100000,5,90000,'02/11/2020',5,5,4,'Algunas flores parecen muertas'),
-		
-		(16,5,'24/10/2020',7,130000,10,150000,'03/11/2020',1,1,7,'Pintado de calidad'),
-		(17,4,'25/10/2020',5,300000,7,280000,'01/11/2020',2,2,3,'El mueble quedo disparejo'),
-		(18,2,'26/10/2020',9,120000,7,130000,'02/11/2020',3,3,5,'Alfombra de mala calidad, pero trabajo excelente'),
-		(19,3,'27/10/2020',11,350000,14,340000,'10/11/2020',4,4,6,'Muro estable pero con imperfecciones'),
-		(20,1,'28/10/2020',3,100000,5,90000,'02/11/2020',5,5,4,'Algunas flores parecen muertas'),
-		
-		(21,5,'24/10/2020',7,130000,10,150000,'',1,1,7,'Pintado de calidad'),
-		(22,6,'24/10/2020',7,130000,10,150000,'',1,1,7,'Pintado de calidad');
+Values	(1,1,'24/10/2020',7,130000,10,150000,'03/11/2020','12.209.321-2','13.013.050-k',7,'Pintado de calidad'),
+		(2,2,'25/10/2020',5,300000,7,280000,'01/11/2020','12.581.127-2','17.369.045-2',3,'El mueble quedo disparejo'),
+		(3,3,'26/10/2020',9,120000,7,130000,'02/11/2020','20.050.945-5','15.954.847-3',5,'Alfombra de mala calidad, pero trabajo excelente'),
+		(4,4,'27/10/2020',11,350000,14,340000,'10/11/2020','12.200.994-7','10.996.764-5',6,'Muro estable pero con imperfecciones'),
+		(5,5,'28/10/2020',3,100000,5,90000,'02/11/2020','13.884.733-0','18.195.306-3',4,'Algunas flores parecen muertas'),	
+		(6,6,'24/10/2019',7,130000,10,150000,'03/11/2019','9.873.114-8','10.825.291-k',7,'Pintado de calidad'),
+		(7,7,'25/10/2019',5,300000,7,280000,'01/11/2019','19.544.656-3','19.220.388-0',3,'El mueble quedo disparejo'),
+		(8,8,'26/10/2019',9,120000,7,130000,'02/11/2019','20.160.580-6','16.567.946-6',5,'Alfombra de mala calidad, pero trabajo excelente'),
+		(9,9,'27/10/2019',11,350000,14,340000,'10/11/2019','8.637.198-7','18.062.883-5',6,'Muro estable pero con imperfecciones'),
+		(10,10,'28/10/2019',3,100000,5,90000,'02/11/2019','8.503.744-7','8.589.485-4',4,'Algunas flores parecen muertas'),	
+		(11,11,'24/10/2020',7,130000,10,150000,'03/11/2020','18.996.078-6','13.882.131-5',7,'Pintado de calidad'),
+		(12,10,'25/10/2020',5,300000,7,280000,'01/11/2020','17.610.809-6','8.589.485-4',3,'El mueble quedo disparejo'),
+		(13,9,'26/10/2020',9,120000,7,130000,'02/11/2020','19.974.759-2','18.062.883-5',5,'Alfombra de mala calidad, pero trabajo excelente'),
+		(14,8,'27/10/2020',11,350000,14,340000,'10/11/2020','11.435.716-2','16.567.946-6',6,'Muro estable pero con imperfecciones'),
+		(15,7,'28/10/2020',3,100000,5,90000,'02/11/2020','12.209.321-2','19.220.388-0',4,'Algunas flores parecen muertas'),	
+		(16,6,'24/10/2020',7,130000,10,150000,'03/11/2020','12.581.127-2','10.825.291-k',7,'Pintado de calidad'),
+		(17,5,'25/10/2020',5,300000,7,280000,'01/11/2020','20.050.945-5','18.195.306-3',3,'El mueble quedo disparejo'),
+		(18,4,'26/10/2020',9,120000,7,130000,'02/11/2020','13.884.733-0','10.996.764-5',5,'Alfombra de mala calidad, pero trabajo excelente'),
+		(19,3,'27/10/2020',11,350000,14,340000,'10/11/2020','12.200.994-7','15.954.847-3',6,'Muro estable pero con imperfecciones'),
+		(20,2,'28/10/2020',3,100000,5,90000,'02/11/2020','9.873.114-8','17.369.045-2',4,'Algunas flores parecen muertas'),
+		(21,1,'24/10/2020',7,130000,10,150000,'02/11/2020','19.544.656-3','13.013.050-k',7,'Pintado de calidad');
 )		
 ( Tienen 		id_trabajo,id_material
 INSERT INTO Tienen
 Values	(1,1),
-		(2,2),
-		(3,3),
-		(4,4),
-		(5,5);
+		(1,2),
+		(1,3),
+		(1,4),
+		(2,5),
+		(2,6),
+		(3,7),
+		(4,8),
+		(4,9),
+		(5,10),
+		(5,11),
+		(6,12),
+		(6,13),
+		(6,14),
+		(7,8),
+		(8,15),
+		(8,16),
+		(10,17),
+		(11,18),
+		(11,19),
+		(11,20),
+		(11,10),
+		(11,11);
 )
+Arreglar
 ( Estima 		id_trabajo,id_proyecto,costo_estimado_actividad,costo_real_actividad,rut_contratista,cantidad_metros,total_estimado_trabajo,tiempo_real_trabajo,costo_material
 INSERT INTO Estima
 Values	(1,1,130000,150000,1,10,7,10),
