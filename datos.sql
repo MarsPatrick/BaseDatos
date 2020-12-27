@@ -128,6 +128,7 @@ VALUES 	(1,'Pintor'),
 		(8,'Electricista'),
 		(9,'Instalador'),
 		(10,'Maquetista'),
+		(11,'General');
 )		
 ( TipoProyecto 	id_tipo_proyecto,descripcion
 INSERT INTO Tipoproyecto
@@ -182,7 +183,7 @@ Values 	(1,'Pintura',1650,'Litros'),
 		(8,'Cemento',100,'Kilogramos'),
 		(9,'Vigas',25000,'Unidad'),
 		(10,'Flores',5000,'Unidad'),
-		(11,'Fertilizante',2800,'Kilogramos')
+		(11,'Fertilizante',2800,'Kilogramos'),
 		(12,'Ceramica',6300,'Caja'),
 		(13,'WC',45000,'Unidad'),
 		(14,'Ducha',5000,'Unidad'),
@@ -242,9 +243,8 @@ Values 	('13.013.050-k',1,'Demetrio','Salvador','Dominguez','Bellido',956153889,
 		('16.567.946-6',8,'Izaskun','Filomena','Galvan','Vela',997841004,'Avenida Cachapoal 1042','08/07/1987',8),
 		('18.062.883-5',9,'Gregoria','Paula','Caparros','Conesa',901533515,'Zamora 1290','19/07/1992',9),
 		('8.589.485-4',10,'Estela','Erica','Santos','Iniesta',984342992,'La Campiña 320','13/11/1960',10),
-		('13.882.131-5',11,'Toni','Cesar','Diez','SanJuan',945881831,'20/07/1978',11);
+		('13.882.131-5',11,'Toni','Cesar','Diez','SanJuan',945881831,'Colo-Colo 123','20/07/1978',11);
 )	
-Arreglar Fecha_fin, Tiempos, Costos, Calificacion, observacion
 ( Proyecto 		id_proyecto,id_tipo_proyecto,fecha_inicio,tiempo_estimado,costo_estimado,tiempo_real_proyecto,costo_Real,fecha_fin,rut_cliente,rut_decorador,calificacion,observacion
 INSERT INTO Proyecto
 Values	(1,1,'05/01/2014',7,156700,6,153700,'11/01/2014','12.209.321-2','13.013.050-k',7,'Hermoso pintado'),
@@ -295,7 +295,6 @@ Values	(1,1),
 		(11,10),
 		(11,11);
 )
-Agregar
 ( Estima 		id_trabajo,id_proyecto,costo_estimado_actividad,costo_real_actividad,rut_contratista,cantidad_metros,tiempo_estimado_trabajo,tiempo_real_trabajo,costo_material
 INSERT INTO Estima
 Values	(1,1,156700,153700,'17.274.702-7',90,7,6,148500),
@@ -320,9 +319,7 @@ Values	(1,1,156700,153700,'17.274.702-7',90,7,6,148500),
 		(2,20,19000,17500,'14.174.355-4',11,4,3,16500),
 		(1,21,252700,262600,'17.274.702-7',150,7,13,247500);
 )	
-	
-Revisar las weas nulas
-	
+		
 1(	
 select d.rut_decorador as rut, d.primer_nombre, d.segundo_nombre, d.primer_apellido, d.segundo_apellido, d.direccion, 
 c.nombre as ciudad, r.nombre as region, t.descripcion as tipo, extract (year from p.fecha_fin) as año,
@@ -360,3 +357,7 @@ where total_real=(select max(total_real) from costo_proyectos)
 6(
 select p.id_proyecto, c.rut_cliente, c.primer_nombre, c.segundo_nombre, m.descripcion, 
 )
+
+Falta
+Consulta 1 agregar un proyecto para ver que se sumen (mismo año y otro mismo tipo)
+Consulta 2 Agregar decoracion completa en el ultimo año

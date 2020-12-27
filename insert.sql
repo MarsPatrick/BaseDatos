@@ -26,6 +26,7 @@ VALUES 	(1,'Pintor'),
 		(8,'Electricista'),
 		(9,'Instalador'),
 		(10,'Maquetista'),
+		(11,'General');
 INSERT INTO Tipoproyecto
 Values	(1,'Pintado del hogar'),
 		(2,'Creacion de muebles'),
@@ -72,7 +73,7 @@ Values 	(1,'Pintura',1650,'Litros'),
 		(8,'Cemento',100,'Kilogramos'),
 		(9,'Vigas',25000,'Unidad'),
 		(10,'Flores',5000,'Unidad'),
-		(11,'Fertilizante',2800,'Kilogramos')
+		(11,'Fertilizante',2800,'Kilogramos'),
 		(12,'Ceramica',6300,'Caja'),
 		(13,'WC',45000,'Unidad'),
 		(14,'Ducha',5000,'Unidad'),
@@ -126,7 +127,7 @@ Values 	('13.013.050-k',1,'Demetrio','Salvador','Dominguez','Bellido',956153889,
 		('16.567.946-6',8,'Izaskun','Filomena','Galvan','Vela',997841004,'Avenida Cachapoal 1042','08/07/1987',8),
 		('18.062.883-5',9,'Gregoria','Paula','Caparros','Conesa',901533515,'Zamora 1290','19/07/1992',9),
 		('8.589.485-4',10,'Estela','Erica','Santos','Iniesta',984342992,'La Campiña 320','13/11/1960',10),
-		('13.882.131-5',11,'Toni','Cesar','Diez','SanJuan',945881831,'20/07/1978',11);
+		('13.882.131-5',11,'Toni','Cesar','Diez','SanJuan',945881831,'Colo-Colo 123','20/07/1978',11);
 INSERT INTO Proyecto
 Values	(1,1,'05/01/2014',7,156700,6,153700,'11/01/2014','12.209.321-2','13.013.050-k',7,'Hermoso pintado'),
 		(2,2,'02/05/2014',3,13500,4,14500,'06/05/2014','12.581.127-2','17.369.045-2',3,'Mueble inestable'),
