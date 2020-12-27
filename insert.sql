@@ -1,103 +1,3 @@
-CREATE TABLE REGION(
-	id_region serial,
-	Nombre varchar(355),
-	PRIMARY KEY (id_region));
-CREATE TABLE ESPECIALIDAD(
-	id_especialidad serial,
-	Descripcion varchar(255),
-	PRIMARY KEY (id_especialidad));
-CREATE TABLE TIPOPROYECTO(
-	id_tipo_proyecto serial,
-	Descripcion varchar(255),
-	PRIMARY KEY (id_tipo_proyecto));
-CREATE TABLE CONTRATISTA(
-	Rut_Contratista varchar(12),
-	Primer_Nombre varchar(255),
-	Segundo_Nombre varchar(255),
-	Primer_Apellido varchar(255),
-	Segundo_Apellido varchar(255),
-	Numero_Contacto varchar(12),
-	PRIMARY KEY (Rut_Contratista));
-CREATE TABLE TRABAJO(
-	id_trabajo serial,
-	Descripcion varchar(255),
-	PRIMARY KEY (id_trabajo));
-CREATE TABLE MATERIAL(
-	id_material serial,
-	Descripcion varchar(255),
-	Valor_Unidad int,
-	Unidad_Medicion varchar(255),
-	PRIMARY KEY (id_material));
-CREATE TABLE CIUDAD(
-	id_ciudad serial,
-	Nombre varchar(255),
-	id_region serial,
-	PRIMARY KEY (id_ciudad),
-	FOREIGN KEY (id_region) REFERENCES REGION);
-CREATE TABLE CLIENTE(
-	Rut_Cliente varchar(12),
-	Primer_Nombre varchar(255),
-	Segundo_Nombre varchar(255),
-	Primer_Apellido varchar(255),
-	Segundo_Apellido varchar(255),
-	Numero_Tel varchar(12),
-	Direccion varchar(255),
-	Fecha_Nac date,
-	id_ciudad serial,
-	PRIMARY KEY (Rut_Cliente),
-	FOREIGN KEY (id_ciudad) REFERENCES CIUDAD);
-CREATE TABLE DECORADOR(
-	Rut_Decorador varchar(12),
-	id_especialidad serial,
-	Primer_Nombre varchar(255),
-	Segundo_Nombre varchar(255),
-	Primer_Apellido varchar(255),
-	Segundo_Apellido varchar(255),
-	Numero_Tel varchar(12),
-	Direccion varchar(255),
-	Fecha_Nac date,
-	id_ciudad serial,
-	PRIMARY KEY (Rut_Decorador),
-	FOREIGN KEY (id_especialidad) REFERENCES ESPECIALIDAD,
-	FOREIGN KEY (id_ciudad) REFERENCES CIUDAD);
-CREATE TABLE PROYECTO(
-	id_proyecto serial,
-	id_tipo_proyecto serial,
-	Fecha_Inicio date,
-	Tiempo_Estimado int,
-	Costo_Estimado int,
-	Tiempo_Real_Proyecto int,
-	Costo_Real int,
-	Fecha_Fin date,
-	Rut_Cliente varchar(12),
-	Rut_Decorador varchar(12),
-	Calificacion int,
-	Observacion varchar(255),
-	PRIMARY KEY (id_proyecto),
-	FOREIGN KEY (Rut_Cliente) REFERENCES CLIENTE,
-	FOREIGN KEY (Rut_Decorador) REFERENCES DECORADOR,
-	FOREIGN KEY (id_tipo_proyecto) REFERENCES TIPOPROYECTO);
-CREATE TABLE TIENEN(
-	id_trabajo serial,
-	id_material serial,
-	PRIMARY KEY (id_trabajo,id_material),
-	FOREIGN KEY (id_trabajo) REFERENCES TRABAJO,
-	FOREIGN KEY (id_material) REFERENCES MATERIAL);
-CREATE TABLE ESTIMA(
-	id_trabajo serial,
-	id_proyecto serial,
-	Costo_Estimado_Actividad int,
-	Costo_Real_Actividad int,
-	Rut_Contratista varchar(12),
-	Cantidad_Metros int,
-	Tiempo_Estimado_Trabajo int,
-	Tiempo_Real_Trabajo int,
-	Costo_Material int,
-	PRIMARY KEY (id_trabajo,id_proyecto,Rut_Contratista),
-	FOREIGN KEY (id_trabajo) REFERENCES TRABAJO,
-	FOREIGN KEY (id_proyecto) REFERENCES PROYECTO,
-	FOREIGN KEY (Rut_Contratista) REFERENCES CONTRATISTA);
-( Region 		id_region,nombre
 INSERT INTO Region
 Values 	(1,'Arica y Parinacota'),
 		(2,'Tarapaca'),
@@ -115,8 +15,6 @@ Values 	(1,'Arica y Parinacota'),
         (14,'Los Lagos'),
         (15,'Aysén del General Carlos Ibañez del Campo'),
         (16,'Magallanes y Antártica Chilena');
-)		
-( Especialidad 	id_especialidad,descripcion
 INSERT INTO Especialidad
 VALUES 	(1,'Pintor'),
 		(2,'Carpintero'),
@@ -128,8 +26,6 @@ VALUES 	(1,'Pintor'),
 		(8,'Electricista'),
 		(9,'Instalador'),
 		(10,'Maquetista'),
-)		
-( TipoProyecto 	id_tipo_proyecto,descripcion
 INSERT INTO Tipoproyecto
 Values	(1,'Pintado del hogar'),
 		(2,'Creacion de muebles'),
@@ -142,8 +38,6 @@ Values	(1,'Pintado del hogar'),
 		(9,'Instalacion General'),
 		(10,'Creacion de maquetas'),
 		(11,'Decoracion Completa');
-)		
-( Contratista	Rut_Contratista,Primer_Nombre,Segundo_Nombre,Primer_Apellido,Segundo_Apellido,Numero_Contacto
 INSERT INTO Contratista
 Values 	('17.274.702-7','Erik','Cipriano','Catalan','Guevara',970921922),
 		('14.174.355-4','Paula','Chloe','Feijoo','Murcia',9241742925),
@@ -155,8 +49,6 @@ Values 	('17.274.702-7','Erik','Cipriano','Catalan','Guevara',970921922),
 		('22.667.479-9','Jesus','Cesar','Botella','Reyes',988963188),
 		('6.065.613-4','Nayara','Myriam','Real','Soto',947548942),
 		('24.715.288-1','Oscar','Iñigo','Marrero','Montiel',981332328);
-)
-( Trabajo 		id_trabajo,descripcion
 INSERT INTO Trabajo
 Values	(1,'Repintado Hogar'),
 		(2,'Construir Mueble'),
@@ -169,8 +61,6 @@ Values	(1,'Repintado Hogar'),
 		(9,'Instalacion a Peticion del Cliente'),
 		(10,'Creado de Maqueta a Peticion del Cliente'),
 		(11,'Decoracion del Hogar y Exteriores');		
-)
-( Material		id_material,descripcion,Valor_Unidad,Unidad_Medicion
 INSERT INTO Material
 Values 	(1,'Pintura',1650,'Litros'),	
 		(2,'Brocha',1200,'Unidad'),
@@ -192,8 +82,6 @@ Values 	(1,'Pintura',1650,'Litros'),
 		(18,'Florero',1000,'Unidad'),
 		(19,'Cuadro',10000,'Unidad'),
 		(20,'Candelabro',10000,'Unidad');
-)
-( CIUDAD		id_ciudad,nombre,id_region
 INSERT INTO Ciudad
 Values	(1,'Arica',1),
 		(2,'Iquique',2),
@@ -211,8 +99,6 @@ Values	(1,'Arica',1),
 		(14,'Puerto Montt',14),
 		(15,'Coyhaique',15),
 		(16,'Punta Arenas',16);
-)
-( Cliente		Rut_Cliente,Primer_Nombre,Segundo_Nombre,Primer_Apellido,Segundo_Apellido,Numero_Tel,Direccion,Fecha_Nac,id_ciudad
 INSERT INTO Cliente
 Values 	('12.209.321-2','Gaspar','Said','Godoy','Muriel',997844223,'Abedul 1345','28/12/1972',1),
 		('12.581.127-2','Abdelkader','Fabian','Acevedo','Marques',937161138,'Aconcagua 7823','20/03/1974',2),
@@ -229,8 +115,6 @@ Values 	('12.209.321-2','Gaspar','Said','Godoy','Muriel',997844223,'Abedul 1345'
 		('19.974.759-2','Andres','Amador','Martin','Martinez',901691071,'Gil de Castro 2904','15/11/1998',13),
 		('11.435.716-2','Felisa','Almudena','Berenger','Moro',961124004,'Palermo 9283','17/05/1970',14),
 		('5.668.027-6','Valentina','Sonia','Fraile','Boix',931931414,'Linares 8782','14/03/1951',15);
-)		
-( Decorador 	Rut_Decorador,id_especialidad,Primer_Nombre,Segundo_Nombre,Primer_Apellido,Segundo_Apellido,Numero_Tel,Direccion,Fecha_Nac,id_ciudad
 INSERT INTO Decorador
 Values 	('13.013.050-k',1,'Demetrio','Salvador','Dominguez','Bellido',956153889,'Cardenal Caro 8923','20/09/1975',1),
 		('17.369.045-2',2,'Orlando','Alejandro','Segarra','Cañadas',965362345,'Madagascar 981','25/03/1990',2),
@@ -243,9 +127,6 @@ Values 	('13.013.050-k',1,'Demetrio','Salvador','Dominguez','Bellido',956153889,
 		('18.062.883-5',9,'Gregoria','Paula','Caparros','Conesa',901533515,'Zamora 1290','19/07/1992',9),
 		('8.589.485-4',10,'Estela','Erica','Santos','Iniesta',984342992,'La Campiña 320','13/11/1960',10),
 		('13.882.131-5',11,'Toni','Cesar','Diez','SanJuan',945881831,'20/07/1978',11);
-)	
-Arreglar Fecha_fin, Tiempos, Costos, Calificacion, observacion
-( Proyecto 		id_proyecto,id_tipo_proyecto,fecha_inicio,tiempo_estimado,costo_estimado,tiempo_real_proyecto,costo_Real,fecha_fin,rut_cliente,rut_decorador,calificacion,observacion
 INSERT INTO Proyecto
 Values	(1,1,'05/01/2014',7,156700,6,153700,'11/01/2014','12.209.321-2','13.013.050-k',7,'Hermoso pintado'),
 		(2,2,'02/05/2014',3,13500,4,14500,'06/05/2014','12.581.127-2','17.369.045-2',3,'Mueble inestable'),
@@ -268,8 +149,6 @@ Values	(1,1,'05/01/2014',7,156700,6,153700,'11/01/2014','12.209.321-2','13.013.0
 		(19,3,'25/04/2020',6,10200,4,11900,'29/04/2020','12.200.994-7','15.954.847-3',6,'Bonita instalacion, cortina descosida'),
 		(20,2,'01/07/2020',4,19000,3,17500,'04/07/2020','9.873.114-8','17.369.045-2',2,'Mueble flojo'),
 		(21,1,'16/10/2020',7,252700,13,262600,'29/10/2020','19.544.656-3','13.013.050-k',6,'Pintado aceptable');
-)		
-( Tienen 		id_trabajo,id_material
 INSERT INTO Tienen
 Values	(1,1),
 		(1,2),
@@ -294,9 +173,6 @@ Values	(1,1),
 		(11,20),
 		(11,10),
 		(11,11);
-)
-Agregar
-( Estima 		id_trabajo,id_proyecto,costo_estimado_actividad,costo_real_actividad,rut_contratista,cantidad_metros,tiempo_estimado_trabajo,tiempo_real_trabajo,costo_material
 INSERT INTO Estima
 Values	(1,1,156700,153700,'17.274.702-7',90,7,6,148500),
 		(2,2,13500,14000,'14.174.355-4',9,3,4,13500),
@@ -319,44 +195,3 @@ Values	(1,1,156700,153700,'17.274.702-7',90,7,6,148500),
 		(3,19,10200,11900,'17.824.958-4',7,6,4,11900),
 		(2,20,19000,17500,'14.174.355-4',11,4,3,16500),
 		(1,21,252700,262600,'17.274.702-7',150,7,13,247500);
-)	
-	
-Revisar las weas nulas
-	
-1(	
-select d.rut_decorador as rut, d.primer_nombre, d.segundo_nombre, d.primer_apellido, d.segundo_apellido, d.direccion, 
-c.nombre as ciudad, r.nombre as region, t.descripcion as tipo, extract (year from p.fecha_fin) as año,
-count (*) as cantidad
-from decorador d, ciudad c, region r, proyecto p, tipoproyecto t 
-where d.id_ciudad = c.id_ciudad and c.id_region = r.id_region and d.rut_decorador = p.rut_decorador
-and p.id_tipo_proyecto = t.id_tipo_proyecto and p.fecha_fin is not null
-Group By (d.rut_decorador,c.nombre, r.nombre, t.descripcion, p.fecha_fin)
-)
-2(
-select c.rut_cliente as rut, c.primer_nombre, c.segundo_nombre, c.primer_apellido, c.segundo_apellido
-from cliente c
-where NOT EXISTS (select *
-					from proyecto p, tipoproyecto t
-					where p.id_tipo_proyecto = t.id_tipo_proyecto and t.descripcion='Decoracion Completa' and p.rut_cliente = c.rut_cliente 
-					and (extract (year from p.fecha_inicio)=(select max(extract (year from p.fecha_inicio))from proyecto p)))
-)					
-3(
-select p.id_proyecto, c.primer_nombre, c.segundo_nombre, c.primer_apellido, c.segundo_apellido, d.primer_nombre, d.segundo_nombre, d.primer_apellido, d.segundo_apellido,
-t.id_trabajo, t.descripcion, co.primer_nombre, co.segundo_nombre, co.primer_apellido, co.segundo_apellido, e.Costo_Estimado_Actividad
-from cliente c, proyecto p, trabajo t, contratista co, estima e, decorador d
-where p.rut_cliente=c.rut_cliente and p.rut_decorador=d.rut_decorador and p.id_proyecto=e.id_proyecto and e.id_trabajo=t.id_trabajo and e.rut_contratista=co.rut_contratista
-)
-4(
-CREATE VIEW costo_proyectos(cod_proyecto, total_estimado,total_real)
-as (select p.id_proyecto, e.costo_estimado_actividad, e.costo_real_actividad
-	from proyecto p, estima e
-	where p.id_proyecto=e.id_proyecto)
-))
-5(
-select cod_proyecto
-from costo_proyectos
-where total_real=(select max(total_real) from costo_proyectos)
-)
-6(
-select p.id_proyecto, c.rut_cliente, c.primer_nombre, c.segundo_nombre, m.descripcion, 
-)
