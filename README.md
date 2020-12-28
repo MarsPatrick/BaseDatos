@@ -4,9 +4,9 @@
 
 ### Profesora: Mónica Caniupán
 
-#### 2020
+2020
 
-1. Enunciado
+# 1. Enunciado
 
 En esta entrega se debe generar la base de datos del enunciado del trabajo semestral, incluyendo
 la generación de tuplas, así como también la especificación de un conjunto de consultas en lenguaje
@@ -18,7 +18,7 @@ Se deben incluir en los siguientes archivos en formato sql, todos en un único a
 -respuestas.pdf: que contiene las respuestas a cada una de las consultas, si la consulta no da
 respuesta, debe asegurarse de ingresar más tuplas en su base de datos para generar respuestas.
 
-2. Consultas
+# 2. Consultas
 Genere las siguientes consultas en lenguaje SQL:
 
 Q1: Mostrar el rut, nombre, apellidos y dirección de los decoradores (incluyendo ciudad y región),
@@ -43,7 +43,7 @@ materiales que fueron necesarios en los proyectos, además mostrar el valor fina
 que se calcula de la siguiente manera: sumar valor unitario de cada material, sumar la cantidad
 de metros estimados para el trabajo, y multiplicar ambos valores.
 
-3. Regulaciones
+# 3. Regulaciones
 El trabajo es individual.
 Cualquier copia entre alumnos será sancionada con nota 1 y reportada a la correspondiente
 Dirección de Escuela.
