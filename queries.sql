@@ -24,9 +24,8 @@ where p.rut_cliente=c.rut_cliente and p.rut_decorador=d.rut_decorador and p.id_p
 
 --4
 CREATE VIEW costo_proyectos(cod_proyecto, total_estimado,total_real)
-as (select p.id_proyecto, e.costo_estimado_actividad, e.costo_real_actividad
-	from proyecto p, estima e
-	where p.id_proyecto=e.id_proyecto)
+as (select id_proyecto, costo_estimado, costo_real
+	from proyecto )
 
 --5
 select cod_proyecto
