@@ -5,7 +5,8 @@ count (*) as cantidad
 from decorador d, ciudad c, region r, proyecto p, tipoproyecto t 
 where d.id_ciudad = c.id_ciudad and c.id_region = r.id_region and d.rut_decorador = p.rut_decorador
 and p.id_tipo_proyecto = t.id_tipo_proyecto and p.fecha_fin is not null
-Group By (d.rut_decorador,c.nombre, r.nombre, t.descripcion, p.fecha_fin)
+Group By (d.rut_decorador,c.nombre, r.nombre, t.descripcion, extract (year from p.fecha_fin))
+Order By d.rut_decorador
 
 --2
 select c.rut_cliente as rut, c.primer_nombre, c.segundo_nombre, c.primer_apellido, c.segundo_apellido
@@ -33,4 +34,7 @@ from costo_proyectos
 where total_real=(select max(total_real) from costo_proyectos)
 
 --6
-select p.id_proyecto, c.rut_cliente, c.primer_nombre, c.segundo_nombre, m.descripcion, 
+select p.id_proyecto, c.rut_cliente, c.primer_nombre, c.segundo_nombre, e.cantidad_metros ,e.cantidad_metros*e.costo_material as valor_final
+from proyecto p, cliente c, estima e
+where p.rut_cliente=c.rut_cliente and e.id_proyecto=p.id_proyecto 
+Order By p.id_proyecto
