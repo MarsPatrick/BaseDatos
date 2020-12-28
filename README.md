@@ -12,9 +12,13 @@ En esta entrega se debe generar la base de datos del enunciado del trabajo semes
 la generación de tuplas, así como también la especificación de un conjunto de consultas en lenguaje
 SQL incluyendo resultados de la evaluaci+on de las consultas en la base de datos.
 Se deben incluir en los siguientes archivos en formato sql, todos en un único archivo formato zip:
+
 -creacion.sql: que contiene la creación de la base de datos en lenguaje SQL.
+
 -insercion.sql: que contiene la inserción de tuplas (mínimo 5 tuplas por tabla).
+
 -queries.sql: que contiene las especificación de las consultas en lenguaje SQL.
+
 -respuestas.pdf: que contiene las respuestas a cada una de las consultas, si la consulta no da
 respuesta, debe asegurarse de ingresar más tuplas en su base de datos para generar respuestas.
 
